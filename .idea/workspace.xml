@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d320a65b-e339-45cb-b769-c8b6105511db" name="Default" comment="" />
+    <list default="true" id="d320a65b-e339-45cb-b769-c8b6105511db" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/PDBMerger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PDBParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MergePDB_Legacy/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MergePDB_Legacy/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Residue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Residue.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -12,14 +19,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="153" column="41" lean-forward="true" selection-start-line="153" selection-start-column="41" selection-end-line="153" selection-end-column="41" />
+            <state relative-caret-position="92">
+              <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#7742#7743#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -28,8 +34,34 @@
       <file leaf-file-name="merged.pdb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testData/merged.pdb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5313">
-              <caret line="528" column="79" lean-forward="true" selection-start-line="528" selection-start-column="79" selection-end-line="528" selection-end-column="79" />
+            <state>
+              <caret column="30" selection-start-column="30" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PDBParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PDBParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PDBMerger.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/PDBMerger.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="851">
+              <caret line="37" column="28" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#6489#6490#0" expanded="true" />
+                <element signature="e#6561#6562#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -63,7 +95,7 @@
       <file leaf-file-name="Atom.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Atom.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="605">
+            <state relative-caret-position="1702">
               <caret line="104" selection-start-line="104" selection-end-line="104" />
               <folding>
                 <element signature="e#207#208#0" expanded="true" />
@@ -108,19 +140,28 @@
       <file leaf-file-name="Residue.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Residue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+            <state relative-caret-position="368">
+              <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#375#376#0" expanded="true" />
                 <element signature="e#411#412#0" expanded="true" />
                 <element signature="e#457#458#0" expanded="true" />
                 <element signature="e#497#498#0" expanded="true" />
+                <element signature="e#543#544#0" expanded="true" />
                 <element signature="e#583#584#0" expanded="true" />
                 <element signature="e#627#628#0" expanded="true" />
                 <element signature="e#664#665#0" expanded="true" />
+                <element signature="e#706#707#0" expanded="true" />
+                <element signature="e#748#749#0" expanded="true" />
+                <element signature="e#787#788#0" expanded="true" />
+                <element signature="e#823#824#0" expanded="true" />
                 <element signature="e#708#709#0" expanded="true" />
                 <element signature="e#745#746#0" expanded="true" />
+                <element signature="e#873#874#0" expanded="true" />
+                <element signature="e#915#916#0" expanded="true" />
+                <element signature="e#1035#1036#0" expanded="true" />
+                <element signature="e#1071#1072#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -140,20 +181,27 @@
       <find>Merging</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/Atom.java" />
-        <option value="$PROJECT_DIR$/src/Residue.java" />
+        <option value="$PROJECT_DIR$/src/PDBParser.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/Residue.java" />
+        <option value="$PROJECT_DIR$/src/PDBMerger.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="207" />
+    <option name="y" value="-19" />
     <option name="width" value="977" />
     <option name="height" value="1038" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -264,8 +312,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="0" width="781" height="830" extended-state="0" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -275,12 +322,12 @@
       <window_info anchor="right" id="Capture Analysis" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27475592" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3089655" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info id="Capture Tool" />
       <window_info id="Designer" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24902217" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12434896" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" />
@@ -299,9 +346,83 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/testMerge2.pdb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-41674" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testData/3.pdb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testData/15.pdb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testMerge.pdb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-33617">
+          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testData/25.pdb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27416" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testData/2.pdb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testData/1.pdb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testData/merged.pdb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="30" selection-start-column="30" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Residue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#375#376#0" expanded="true" />
+            <element signature="e#411#412#0" expanded="true" />
+            <element signature="e#457#458#0" expanded="true" />
+            <element signature="e#497#498#0" expanded="true" />
+            <element signature="e#543#544#0" expanded="true" />
+            <element signature="e#583#584#0" expanded="true" />
+            <element signature="e#627#628#0" expanded="true" />
+            <element signature="e#664#665#0" expanded="true" />
+            <element signature="e#706#707#0" expanded="true" />
+            <element signature="e#748#749#0" expanded="true" />
+            <element signature="e#787#788#0" expanded="true" />
+            <element signature="e#823#824#0" expanded="true" />
+            <element signature="e#708#709#0" expanded="true" />
+            <element signature="e#745#746#0" expanded="true" />
+            <element signature="e#873#874#0" expanded="true" />
+            <element signature="e#915#916#0" expanded="true" />
+            <element signature="e#1035#1036#0" expanded="true" />
+            <element signature="e#1071#1072#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Atom.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="605">
+        <state relative-caret-position="1702">
           <caret line="104" selection-start-line="104" selection-end-line="104" />
           <folding>
             <element signature="e#207#208#0" expanded="true" />
@@ -342,68 +463,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Residue.java">
+    <entry file="file://$PROJECT_DIR$/src/PDBParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        <state relative-caret-position="184">
+          <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#375#376#0" expanded="true" />
-            <element signature="e#411#412#0" expanded="true" />
-            <element signature="e#457#458#0" expanded="true" />
-            <element signature="e#497#498#0" expanded="true" />
-            <element signature="e#583#584#0" expanded="true" />
-            <element signature="e#627#628#0" expanded="true" />
-            <element signature="e#664#665#0" expanded="true" />
-            <element signature="e#708#709#0" expanded="true" />
-            <element signature="e#745#746#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testMerge2.pdb">
+    <entry file="file://$PROJECT_DIR$/src/PDBMerger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-41674" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testData/3.pdb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testData/15.pdb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testMerge.pdb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-33617">
-          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testData/25.pdb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27416" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testData/merged.pdb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5313">
-          <caret line="528" column="79" lean-forward="true" selection-start-line="528" selection-start-column="79" selection-end-line="528" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testData/2.pdb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testData/1.pdb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="153" column="41" lean-forward="true" selection-start-line="153" selection-start-column="41" selection-end-line="153" selection-end-column="41" />
+        <state relative-caret-position="851">
+          <caret line="37" column="28" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7742#7743#0" expanded="true" />
+            <element signature="e#6489#6490#0" expanded="true" />
+            <element signature="e#6561#6562#0" expanded="true" />
           </folding>
         </state>
       </provider>

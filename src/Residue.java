@@ -25,8 +25,20 @@ public class Residue {
     public List<Atom> getMainChainAtoms() {
         return mainChainAtoms;
     }
+    public Atom getMainChainAtom(int i) {
+        return mainChainAtoms.get(i);
+    }
+    public int numMainChainAtoms() {
+        return mainChainAtoms.size();
+    }
     public List<Atom> getSideChainAtoms() {
         return sideChainAtoms;
+    }
+    public Atom getSideChainAtom(int i) {
+        return sideChainAtoms.get(i);
+    }
+    public int numSideChainAtoms() {
+        return sideChainAtoms.size();
     }
 
     @Override

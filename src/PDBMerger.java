@@ -3,10 +3,12 @@ import java.util.List;
 
 public class PDBMerger {
 
-    private final static String ATOM_RECORD = "ATOM";
+    private static final String ATOM_RECORD = "ATOM";
     private static final String ALT_STRING = "AA";
+    int numberOfMergers = 0;
 
     List<String> merge(double mainChainTolerance, double sideChainTolerance, boolean multipleConformations, List<List<String>> lists) {
+        numberOfMergers = 0;
         int size = lists.get(0).size();
         double sharedOccupancy = 1.0 / ((double) lists.size());
         List<String> mergedList = new ArrayList<>();
@@ -45,6 +47,7 @@ public class PDBMerger {
         return mergedList;
     }
     List<String> merge(double mainChainTolerance, double sideChainTolerance, boolean multipleConformations, List<String>... lists) {
+        numberOfMergers = 0;
         int size = lists[0].size();
         double sharedOccupancy = 1.0 / ((double) lists.length);
         List<String> mergedList = new ArrayList<>();
@@ -71,9 +74,9 @@ public class PDBMerger {
                 }
                 for(int j=0; j<lists.length; j++) {
                     Atom atom = new Atom(lists[j].get(i));
-                    if(counter<4) { //atom is main chain
+                    if(counter<4) {
                         currentResidues[j].addMainChainAtom(atom);
-                    } else { //atom is side chain
+                    } else {
                         currentResidues[j].addSideChainAtom(atom);
                     }
                 }
@@ -87,6 +90,7 @@ public class PDBMerger {
         Residue meanResidue = meanResidue(currentResidues);
         boolean merging = testResidues(mainChainTolerance, sideChainTolerance, currentResidues, meanResidue);
         if (merging) {
+           numberOfMergers++;
             System.out.println("Merging residue " + meanResidue.getResidueNumber());
             for (Atom mainChainAtom : meanResidue.getMainChainAtoms()) {
                 mainChainAtom.setSerialID(serialID);
@@ -141,6 +145,7 @@ public class PDBMerger {
                 sumOfDistances+=meanAtom.getDistance(currentAtom);
             }
             double meanDistance = sumOfDistances / ((double) residues.length);
+            //if(meanDistance>mainChainTolerance) return false; //test each atom separately rather than average
             sumOfMeans+=meanDistance;
         }
         double averageOfMeans = numMainAtoms==0? 0 : sumOfMeans / ((double) numMainAtoms);
@@ -156,6 +161,7 @@ public class PDBMerger {
                 sumOfDistances+=meanAtom.getDistance(currentAtom);
             }
             double meanDistance = sumOfDistances / ((double) residues.length);
+            //if(meanDistance>sideChainTolerance) return false;
             sumOfSideMeans+=meanDistance;
         }
         double averageOfSideMeans = numSideAtoms==0? 0 : sumOfSideMeans / ((double) numSideAtoms);
@@ -197,7 +203,7 @@ public class PDBMerger {
         meanAtom.setZ(meanZ);
         //meanAtom.setAltLoc('A');
         meanAtom.setOccupancy(1.0);
-        meanAtom.setChainID('A');
+        //meanAtom.setChainID('A');
         //meanAtom.setTempFactor(something)??
         return meanAtom;
     }

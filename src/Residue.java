@@ -3,9 +3,9 @@ import java.util.List;
 
 public class Residue {
 
-    int residueNumber;
-    List<Atom> mainChainAtoms;
-    List<Atom> sideChainAtoms;
+    private int residueNumber;
+    private List<Atom> mainChainAtoms;
+    private List<Atom> sideChainAtoms;
 
     public Residue(int residueNumber) {
         this.residueNumber = residueNumber;

@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
-
+/*
+Class for a residue in a pdb file
+ */
 public class Residue {
 
     private int residueNumber;
@@ -45,8 +47,8 @@ public class Residue {
     public String toString() {
         return "Residue{" +
                 "residueNumber = " + residueNumber +
-                "mainChainAtoms = " + mainChainAtoms +
-                "sideChainAtoms = " + sideChainAtoms +
+                ", mainChainAtoms = " + mainChainAtoms +
+                ", sideChainAtoms = " + sideChainAtoms +
                 "}";
     }
 

@@ -1,6 +1,33 @@
+/*
+Class for a single atom record in a pdb file
+ */
 public class Atom {
 
     private final int[] splittingIndices = {0, 6, 11, 12, 16, 17, 20, 21, 22, 26, 27, 30, 38, 46, 54, 60, 66, 76, 78, 79};
+    /*
+    Parameters are read from a single atom record in a pdb file
+    [0] = Record name, always "ATOM  "
+    [1] = Serial number, #####
+    [2] = blank
+    [3] = Atom name, 4 chars padded with spaces e.g. " CD2"
+    [4] = AltLoc, 1 char
+    [5] = Residue name, 3 chars e.g. "LEU"
+    [6] = blank
+    [7] = ChainID, 1 char
+    [8] = Residue sequence number, ####
+    [9] = iCode, 1 char
+    [10] = blank
+    [11] = X coordinate, ####.### e.g. "  -2.320"
+    [12] = Y coordinate
+    [13] = Z coordinate
+    [14] = Occupancy, ###.##, e.g. "  1.00"
+    [15] = TempFactor, ###.##
+    [16] = blank
+    [17] = "AA" if alternate, blank otherwise
+    [18] = blank
+    [19] = Element
+
+     */
     private String[] parameters;
 
     public Atom(String line) {
@@ -11,6 +38,9 @@ public class Atom {
         this(anotherAtom.toLine());
     }
 
+    /*
+    Read parameters from single ATOM record in PDB file
+     */
     private String[] splitString(String lineToSplit, int... indices) {
         String[] split = new String[indices.length - 1];
         for (int i = 0; i < split.length; i++) {
@@ -35,7 +65,7 @@ public class Atom {
                 ", residueSequenceNumber=" + getResidueSequenceNumber() +
                 '}';
     }
-
+    //Convert the parameters back to an ATOM pdb record
     public String toLine() {
         String line = "";
         StringBuilder stringBuilder = new StringBuilder(line);
@@ -44,6 +74,10 @@ public class Atom {
         }
         return stringBuilder.toString();
     }
+    /*
+    format a double to have exact number of leading and trailing digits
+    Leading digits are padded with spaces, trailing digits padded with zeros
+     */
     private static String formatDouble(double d, int leadingDigits, int trailingDigits) {
         StringBuilder stringBuilder = new StringBuilder();
         int digits = (d + "").indexOf('.');
@@ -99,6 +133,9 @@ public class Atom {
     }
     public void setChainID(char id) {
         parameters[7] = id+"";
+    }
+    public String getResidueCode() {
+        return parameters[5];
     }
 
 }

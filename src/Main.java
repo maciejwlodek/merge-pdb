@@ -36,7 +36,7 @@ public class Main extends Application {
         vbox.requestFocus();
         primaryStage.setScene(scene);
         primaryStage.setTitle("Merge PDB files");
-        primaryStage.setWidth(500);
+        primaryStage.setWidth(300);
         primaryStage.setHeight(300);
         primaryStage.show();
 

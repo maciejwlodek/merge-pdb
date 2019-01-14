@@ -1,12 +1,20 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+Class that merges pdb files based on proximity of corresponding residues
+List<String> is generally the contents of a pdb file
+ */
 public class PDBMerger {
 
     private static final String ATOM_RECORD = "ATOM";
+    private static final String HETATM_RECORD = "HETATM";
     private static final String ALT_STRING = "AA";
     int numberOfMergers = 0;
 
+    /*
+    merge lists into single list
+     */
     List<String> merge(double mainChainTolerance, double sideChainTolerance, boolean multipleConformations, List<List<String>> lists) {
         numberOfMergers = 0;
         int size = lists.get(0).size();
@@ -18,7 +26,7 @@ public class PDBMerger {
         int serialID = 1;
         for(int i=0; i<size; i++){
             String currentLine = lists.get(0).get(i);
-            if(!currentLine.contains(ATOM_RECORD)){
+            if(!currentLine.contains(ATOM_RECORD) && !currentLine.contains(HETATM_RECORD)){
                 if(currentResidues[0]!=null) serialID = mergeSingleResidue(mergedList, currentResidues, serialID, sharedOccupancy, mainChainTolerance, sideChainTolerance, multipleConformations);
                 mergedList.add(currentLine);
             }
@@ -57,7 +65,7 @@ public class PDBMerger {
         int serialID = 1;
         for(int i=0; i<size; i++){
             String currentLine = lists[0].get(i);
-            if(!currentLine.contains(ATOM_RECORD)){
+            if(!currentLine.contains(ATOM_RECORD) && !currentLine.contains(HETATM_RECORD)){
                 if(currentResidues[0]!=null) serialID = mergeSingleResidue(mergedList, currentResidues, serialID, sharedOccupancy, mainChainTolerance, sideChainTolerance, multipleConformations);
                 mergedList.add(currentLine);
             }
@@ -85,13 +93,15 @@ public class PDBMerger {
         }
         return mergedList;
     }
-
+    /*
+    merge corresponding residues from each file
+     */
     int mergeSingleResidue(List<String> mergedList, Residue[] currentResidues, int serialID, double sharedOccupancy, double mainChainTolerance, double sideChainTolerance, boolean multipleConformations) {
         Residue meanResidue = meanResidue(currentResidues);
         boolean merging = testResidues(mainChainTolerance, sideChainTolerance, currentResidues, meanResidue);
         if (merging) {
            numberOfMergers++;
-            System.out.println("Merging residue " + meanResidue.getResidueNumber());
+            //System.out.println("Merging residue " + meanResidue.getResidueNumber());
             for (Atom mainChainAtom : meanResidue.getMainChainAtoms()) {
                 mainChainAtom.setSerialID(serialID);
                 serialID++;
@@ -103,9 +113,11 @@ public class PDBMerger {
                 mergedList.add(sideChainAtom.toLine());
             }
         } else {
+            //System.out.println("Not merging " + meanResidue.getResidueNumber());
             if(multipleConformations) {
                 for (int k = 0; k < currentResidues.length; k++) {
                     Residue r = currentResidues[k];
+                    System.out.println(k +", " + r.getMainChainAtom(0).getResidueCode() + r.getResidueNumber());
                     for (Atom mainAtom : r.getMainChainAtoms()) {
                         mainAtom.setAltLoc(getAltLocKey(k));
                         mainAtom.setSerialID(serialID);
@@ -134,6 +146,9 @@ public class PDBMerger {
     char getAltLocKey(int index) {
         return (index<26)? (char) (index+65) : (char) (index+71);
     }
+    /*
+    test whether to merge group of corresponding residues based on proximity
+     */
     boolean testResidues(double mainChainTolerance, double sideChainTolerance, Residue[] residues, Residue meanResidue) {
         double sumOfMeans=0;
         int numMainAtoms = meanResidue.numMainChainAtoms();
@@ -168,6 +183,9 @@ public class PDBMerger {
         if(averageOfSideMeans>sideChainTolerance) return false;
         return true;
     }
+    /*
+    Get the centroid residue of a group of residues
+     */
     Residue meanResidue(Residue[] residues) {
         Residue meanResidue = new Residue( residues[0].getResidueNumber());
         for(int i=0; i< residues[0].numMainChainAtoms(); i++) {
@@ -180,6 +198,9 @@ public class PDBMerger {
         }
         return meanResidue;
     }
+    /*
+    Get a centroid atom
+     */
     Atom meanAtom(Residue[] residues, int index, boolean mainChain) {
         double sumX=0;
         double sumY=0;

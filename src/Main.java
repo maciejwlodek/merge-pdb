@@ -9,15 +9,20 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Main extends Application {
+    /*
+    launch the application
+     */
     public static void main(String[] args) {
         launch(args);
     }
 
+    /*
+    display the application window
+     */
     @Override
     public void start(Stage primaryStage)  {
 
@@ -41,6 +46,7 @@ public class Main extends Application {
         primaryStage.show();
 
         mergeButton.setOnAction(e -> handleMergeButton(primaryStage, Double.parseDouble(mainTolerance.getText()), Double.parseDouble(sideTolerance.getText()), multipleConformation.isSelected()));
+        //disable the merge button if either the mainChainTolerance or the sideChainTolerance is not a number
         mergeButton.disableProperty().bind(new BooleanBinding() {
             {bind(mainTolerance.textProperty(), sideTolerance.textProperty());}
             @Override
@@ -49,18 +55,15 @@ public class Main extends Application {
             }
         });
     }
+    /*
+    prompt user to choose pdb files and merge them together
+     */
     static void handleMergeButton (Stage primaryStage, double mainTolerance, double sideTolerance, boolean multipleConfs) {
         try {
-            PDBParser parser = new PDBParser();
             List<String> files = showOpenDialog(primaryStage).stream().map(File::toString).collect(Collectors.toList());
-            List<List<String>> allLines = new ArrayList<>();
-            for(String fileName : files) {
-                List<String> currentFile = parser.openPDBFile(fileName);
-                allLines.add(currentFile);
-            }
             PDBMerger mergeTool = new PDBMerger();
-            List<String> mergedFile = mergeTool.merge(mainTolerance, sideTolerance, multipleConfs, allLines);
-            parser.writePDBFile(mergedFile, "merge.pdb");
+            //TODO: make finalFilename a user-inputted option
+            mergeTool.mergeFilesAndWrite(files, mainTolerance, sideTolerance, multipleConfs, "merge.pdb");
             System.out.println(mergeTool.numberOfMergers);
             
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -70,6 +73,9 @@ public class Main extends Application {
             e.printStackTrace();
         }
     }
+    /*
+    show a file chooser dialog so the user may choose which files to merge
+     */
     static List<File> showOpenDialog(Stage primaryStage) {
         FileChooser fc = new FileChooser();
         fc.setInitialDirectory(new File("."));
@@ -77,6 +83,9 @@ public class Main extends Application {
         fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDB Files", "*.pdb"));
         return fc.showOpenMultipleDialog(primaryStage);
     }
+    /*
+    helper method to test if a string is a number
+     */
     static boolean isDouble(String value) {
         try {
             Double.parseDouble(value);

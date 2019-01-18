@@ -3,7 +3,7 @@ Class for a single atom record in a pdb file
  */
 public class Atom {
 
-    private final int[] splittingIndices = {0, 6, 11, 12, 16, 17, 20, 21, 22, 26, 27, 30, 38, 46, 54, 60, 66, 76, 78, 79};
+    private final int[] splittingIndices = {0, 6, 11, 12, 16, 17, 20, 21, 22, 26, 27, 30, 38, 46, 54, 60, 66, 72, 74, 76, 78, 80};
     /*
     Parameters are read from a single atom record in a pdb file
     [0] = Record name, always "ATOM  "
@@ -44,11 +44,18 @@ public class Atom {
     private String[] splitString(String lineToSplit, int... indices) {
         String[] split = new String[indices.length - 1];
         for (int i = 0; i < split.length; i++) {
+            if(indices[i]>=lineToSplit.length()) {
+                split[i] = "  ";
+                break;
+            }
             split[i] = lineToSplit.substring(indices[i], indices[i + 1]);
         }
         return split;
     }
 
+    /*
+    compute the distance from one atom to another
+     */
     double getDistance(Atom anotherAtom) {
         double dx = anotherAtom.getX() - getX();
         double dy = anotherAtom.getY() - getY();
@@ -74,19 +81,16 @@ public class Atom {
         }
         return stringBuilder.toString();
     }
+
     /*
-    format a double to have exact number of leading and trailing digits
-    Leading digits are padded with spaces, trailing digits padded with zeros
+    format a double as a string with exactly number of leading and trailing digits
+    leading digits are padded with spaces, trailing digits are padded with zeros
      */
     private static String formatDouble(double d, int leadingDigits, int trailingDigits) {
-        StringBuilder stringBuilder = new StringBuilder();
-        int digits = (d + "").indexOf('.');
-        for (int i = 0; i < leadingDigits - digits; i++) {
-            stringBuilder.append(" ");
-        }
-        String formattingString = "%." + trailingDigits + "f";
-        stringBuilder.append(String.format(formattingString, d));
-        return stringBuilder.toString();
+        int length = leadingDigits+trailingDigits;
+        if(trailingDigits!=0) length++; //if there are trailing digits we add one to the length to account for decimal point
+        String formattingString = "%" + length+"."+trailingDigits+"f";
+        return String.format(formattingString, d);
     }
 
     public double getOccupancy() {
@@ -121,6 +125,7 @@ public class Atom {
     }
     public void setAltLoc(char c) {
         parameters[4] = c + "";
+        parameters[17]="AA";
     }
     public int getSerialID() {
         return Integer.parseInt(parameters[1].trim());
